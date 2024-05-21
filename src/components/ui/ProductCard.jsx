@@ -11,17 +11,17 @@ const ProductCard = (props) => {
   const [quantity, setQuantity] = useState(0);
 
   const incrementQuantity = () => {
-    setQuantity(quantity + 1);
+    if (quantity < stock) {
+      setQuantity(quantity + 1);
+    }
   };
 
   const decrementQuantity = () => {
-    setQuantity(quantity - 1);
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
   };
 
-  let disabled = false;
-  if (quantity <= 0) {
-    disabled = true;
-  }
   return (
     <div className="p-4 border rounded-md md:max-w-96 flex flex-col gap-4">
       <div className="aspect-square w-full overflow-hidden">
@@ -39,16 +39,23 @@ const ProductCard = (props) => {
           size="icon"
           variant="ghost"
           onClick={decrementQuantity}
-          disabled={disabled}
+          disabled={quantity <= 0}
         >
           <IoIosRemove className="h-6 w-6" />
         </Button>
         <p className="text-lg font-bold">{quantity}</p>
-        <Button size="icon" variant="ghost" onClick={incrementQuantity}>
+        <Button
+          size="icon"
+          variant="ghost"
+          onClick={incrementQuantity}
+          disabled={quantity >= stock}
+        >
           <IoIosAdd className="h-6 w-6" />
         </Button>
       </div>
-      <Button onClick={addToCart}>Add to cart</Button>
+      <Button onClick={addToCart} disabled={!stock}>
+        {stock > 0 ? "Add to cart" : "Out of stock"}
+      </Button>
     </div>
   );
 };
