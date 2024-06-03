@@ -3,6 +3,7 @@ import { Input } from "./ui/input";
 import { IoCart, IoHeart } from "react-icons/io5";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -12,9 +13,11 @@ const Header = () => {
       <Input className="max-w-[600px]" placeholder="Search products..." />
       <div className="flex space-x-4 h-6 items-center">
         <div className="flex space-x-2 ">
-          <Button size="icon" variant="ghost">
-            <IoCart className="h-6 w-6" />
-          </Button>
+          <Link to={"/cart"}>
+            <Button size="icon" variant="ghost">
+              <IoCart className="h-6 w-6" />
+            </Button>
+          </Link>
           <Button size="icon" variant="ghost">
             <IoHeart className="h-6 w-6" />
           </Button>
