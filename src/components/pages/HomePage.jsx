@@ -1,27 +1,27 @@
 import React from "react";
 import ProductCard from "../ui/ProductCard";
-
-const productRaw = [
-  {
-    productName: "Dark Gray T-Shirt",
-    imgSrc:
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456773/item/goods_08_456773.jpg?width=750",
-    price: 199000,
-    stock: 5,
-  },
-  {
-    productName: "Chainsaw Man T-Thirt",
-    imgSrc:
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/467422/item/goods_00_467422.jpg?width=750",
-    price: 129000,
-    stock: 0,
-  },
-];
+import { useState, useEffect } from "react";
+import { axiosInstance } from "@/lib/axios";
 
 const HomePage = () => {
-  const products = productRaw.map((product) => {
+  const [data, setData] = useState([]);
+  const [productLoading, setProductLoading] = useState(false);
+
+  const fetchProducts = async () => {
+    setProductLoading(true);
+    try {
+      const response = await axiosInstance.get("/products");
+      setData(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setProductLoading(false);
+    }
+  };
+  const products = data.map((product) => {
     return (
       <ProductCard
+        id={product.id}
         productName={product.productName}
         imgSrc={product.imgSrc}
         price={product.price}
@@ -29,6 +29,12 @@ const HomePage = () => {
       />
     );
   });
+
+  // fetch data product once, when homepage is loaded
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   return (
     <>
       <main className="min-h-[90vh] max-w-screen-md mx-auto px-4 mt-8">
@@ -41,7 +47,11 @@ const HomePage = () => {
             confidence througout your days.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4">{products}</div>
+        {productLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <div className="grid grid-cols-2 gap-4">{products}</div>
+        )}
       </main>
     </>
   );

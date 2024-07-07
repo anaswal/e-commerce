@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "productName": "Dark Gray T-Shirt",
+      "imgSrc": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456773/item/goods_08_456773.jpg?width=750",
+      "price": 199000,
+      "stock": 5
+    },
+    {
+      "id": 2,
+      "productName": "Chainsaw Man T-Thirt",
+      "imgSrc": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/467422/item/goods_00_467422.jpg?width=750",
+      "price": 129000,
+      "stock": 0
+    },
+    {
+      "id": 3,
+      "productName": "Jacket",
+      "price": 1349850,
+      "imgSrc": "https://example.com/images/jacket.jpg",
+      "stock": 20
+    },
+    {
+      "id": 4,
+      "productName": "Sneakers",
+      "price": 899850,
+      "imgSrc": "https://example.com/images/sneakers.jpg",
+      "stock": 45
+    },
+    {
+      "id": 5,
+      "productName": "Cap",
+      "price": 224850,
+      "imgSrc": "https://example.com/images/cap.jpg",
+      "stock": 100
+    },
+    {
+      "id": 6,
+      "productName": "Dress",
+      "price": 1049850,
+      "imgSrc": "https://example.com/images/dress.jpg",
+      "stock": 25
+    },
+    {
+      "id": 7,
+      "productName": "Skirt",
+      "price": 599850,
+      "imgSrc": "https://example.com/images/skirt.jpg",
+      "stock": 35
+    },
+    {
+      "id": 8,
+      "productName": "Blouse",
+      "price": 449850,
+      "imgSrc": "https://example.com/images/blouse.jpg",
+      "stock": 40
+    },
+    {
+      "id": 9,
+      "productName": "Sweater",
+      "price": 749850,
+      "imgSrc": "https://example.com/images/sweater.jpg",
+      "stock": 28
+    },
+    {
+      "id": 10,
+      "productName": "Shorts",
+      "price": 374850,
+      "imgSrc": "https://example.com/images/shorts.jpg",
+      "stock": 60
+    }
+  ]
+}
