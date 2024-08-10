@@ -22,10 +22,10 @@ const HomePage = () => {
     return (
       <ProductCard
         id={product.id}
-        productName={product.productName}
-        imgSrc={product.imgSrc}
+        productName={product.title}
+        imgSrc={product.image}
         price={product.price}
-        stock={product.stock}
+        stock={product.rating.count}
       />
     );
   });

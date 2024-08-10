@@ -4,16 +4,23 @@ import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import { IoHeartOutline } from "react-icons/io5";
 import { useParams } from "react-router-dom";
 import { axiosInstance } from "@/lib/axios";
+import { Skeleton } from "../ui/skeleton";
+
+// 1. Get the ID
+// 2. Fetch product with the right ID
+// 3. Add the ID to state
+// 4. Render data from the state to UI
 
 const ProductDetailPage = () => {
   const [product, setProduct] = useState({
-    productName: "",
+    title: "",
     price: 0,
-    imgSrc: "",
-    stock: 0,
+    image: "",
+    description: "",
     id: 0,
   });
   const params = useParams();
+  const [productIsLoading, setProductIsLoading] = useState(true);
 
   const fetchDetailProduct = async () => {
     try {
@@ -21,6 +28,8 @@ const ProductDetailPage = () => {
       setProduct(response.data);
     } catch (err) {
       console.log(err);
+    } finally {
+      setProductIsLoading(false);
     }
   };
 
@@ -31,21 +40,33 @@ const ProductDetailPage = () => {
   return (
     <main className="min-h-screen max-w-screen-lg mx-auto px-4 mt-8">
       <div className="grid grid-cols-2 gap-8">
-        <img
-          src={product.imgSrc}
-          alt={product.productName}
-          className="w-full"
-        />
+        {productIsLoading ? (
+          <Skeleton className="w-[400px] h[400px]" />
+        ) : (
+          <img src={product.image} alt={product.title} className="w-full" />
+        )}
+
         <div className="flex flex-col justify-center gap-1">
-          <h1 className="text-xl">{product.productName}</h1>
-          <h3 className="text-3xl font-bold">
-            Rp {product.price.toLocaleString("id-ID")}
-          </h3>
-          <p className="text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
-            fugiat iste nemo deleniti nisi possimus molestias expedita suscipit
-            earum minima.
-          </p>
+          {productIsLoading ? (
+            <Skeleton className="w-[200px] h-[20px]" />
+          ) : (
+            <h1 className="text-xl">{product.title}</h1>
+          )}
+
+          {productIsLoading ? (
+            <Skeleton className="w-[200px] h-[20px]" />
+          ) : (
+            <h3 className="text-3xl font-bold">
+              Rp {product.price.toLocaleString("id-ID")}
+            </h3>
+          )}
+
+          {productIsLoading ? (
+            <Skeleton className="w-[400px] h-[200px]" />
+          ) : (
+            <p className="text-muted-foreground">{product.description}</p>
+          )}
+
           <div className="flex items-center gap-8">
             <Button size="icon" variant="ghost">
               <IoIosRemove className="h-6 w-6" />
