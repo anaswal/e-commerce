@@ -13,9 +13,9 @@ import { Skeleton } from "../ui/skeleton";
 
 const ProductDetailPage = () => {
   const [product, setProduct] = useState({
-    title: "",
+    productName: "",
     price: 0,
-    image: "",
+    imgUrl: "",
     description: "",
     id: 0,
   });
@@ -24,7 +24,7 @@ const ProductDetailPage = () => {
 
   const fetchDetailProduct = async () => {
     try {
-      const response = await axiosInstance.get(`/products/${params.productId}`);
+      const response = await axiosInstance.get(`/products/` + params.productId);
       setProduct(response.data);
     } catch (err) {
       console.log(err);
@@ -43,14 +43,18 @@ const ProductDetailPage = () => {
         {productIsLoading ? (
           <Skeleton className="w-[400px] h[400px]" />
         ) : (
-          <img src={product.image} alt={product.title} className="w-full" />
+          <img
+            src={product.imgUrl}
+            alt={product.productName}
+            className="w-full"
+          />
         )}
 
         <div className="flex flex-col justify-center gap-1">
           {productIsLoading ? (
             <Skeleton className="w-[200px] h-[20px]" />
           ) : (
-            <h1 className="text-xl">{product.title}</h1>
+            <h1 className="text-xl">{product.productName}</h1>
           )}
 
           {productIsLoading ? (
@@ -64,7 +68,12 @@ const ProductDetailPage = () => {
           {productIsLoading ? (
             <Skeleton className="w-[400px] h-[200px]" />
           ) : (
-            <p className="text-muted-foreground">{product.description}</p>
+            <p className="text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+              perferendis neque commodi repellat at laudantium id qui minima
+              odit quaerat aliquam tempora doloremque ipsa ea dolorum aspernatur
+              fugit, fugiat et.
+            </p>
           )}
 
           <div className="flex items-center gap-8">

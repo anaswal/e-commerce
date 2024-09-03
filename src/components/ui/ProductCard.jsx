@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const addToCart = () => alert("Clicked");
 
 const ProductCard = (props) => {
-  const { imgSrc, productName, price, stock, id } = props;
+  const { imgUrl, productName, price, stock, id } = props;
 
   const [quantity, setQuantity] = useState(0);
 
@@ -29,7 +29,7 @@ const ProductCard = (props) => {
         to={"/product/" + id}
         className="aspect-square w-full overflow-hidden"
       >
-        <img className="w-full" src={imgSrc} alt="product" />
+        <img className="w-full" src={imgUrl} alt="product" />
       </Link>
       <Link to={"/product/" + id}>
         <p className="text-md">{productName}</p>

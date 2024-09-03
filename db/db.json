@@ -1,74 +1,200 @@
 {
   "products": [
     {
-      "id": 1,
-      "productName": "Dark Gray T-Shirt",
-      "imgSrc": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456773/item/goods_08_456773.jpg?width=750",
-      "price": 199000,
-      "stock": 5
-    },
-    {
-      "id": 2,
-      "productName": "Chainsaw Man T-Thirt",
-      "imgSrc": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/467422/item/goods_00_467422.jpg?width=750",
-      "price": 129000,
-      "stock": 0
-    },
-    {
-      "id": 3,
-      "productName": "Jacket",
-      "price": 1349850,
-      "imgSrc": "https://example.com/images/jacket.jpg",
-      "stock": 20
-    },
-    {
-      "id": 4,
-      "productName": "Sneakers",
+      "id": "1",
+      "productName": "Wireless Headphones",
+      "imgUrl": "https://images.unsplash.com/photo-1592329467120-b43de0df1117?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHdpcmVsZXNzJTIwaGVhZHBob25lc3xlbnwwfHx8fDE2ODY3MTU3MzU&ixlib=rb-4.0.3&q=80&w=1080",
       "price": 899850,
-      "imgSrc": "https://example.com/images/sneakers.jpg",
+      "stock": 120
+    },
+    {
+      "id": "2",
+      "productName": "Smartphone",
+      "imgUrl": "https://images.unsplash.com/photo-1566096009642-58d7cd9b4d0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0cGhvbmV8ZW58MHx8fHwxNjg2NzE1Nzkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 10499850,
       "stock": 45
     },
     {
-      "id": 5,
-      "productName": "Cap",
-      "price": 224850,
-      "imgSrc": "https://example.com/images/cap.jpg",
-      "stock": 100
+      "id": "3",
+      "productName": "Gaming Laptop",
+      "imgUrl": "https://images.unsplash.com/photo-1584270354949-7c3848308e62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGdhbWluZyUyMGxhcHRvcHxlbnwwfHx8fDE2ODY3MTU4MzE&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 19499850,
+      "stock": 30
     },
     {
-      "id": 6,
-      "productName": "Dress",
-      "price": 1049850,
-      "imgSrc": "https://example.com/images/dress.jpg",
+      "id": "4",
+      "productName": "4K Television",
+      "imgUrl": "https://images.unsplash.com/photo-1512038663573-6d2cda2399be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fDRrJTIwdGVsZXZpc2lvbnxlbnwwfHx8fDE2ODY3MTU4NjQ&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 13499850,
+      "stock": 15
+    },
+    {
+      "id": "5",
+      "productName": "Bluetooth Speaker",
+      "imgUrl": "https://images.unsplash.com/photo-1518081461900-bc1d05c80b4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGJsdWV0b290aCUyMHNwZWFrZXJ8ZW58MHx8fHwxNjg2NzE1ODk0&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 539850,
+      "stock": 200
+    },
+    {
+      "id": "6",
+      "productName": "Fitness Tracker",
+      "imgUrl": "https://images.unsplash.com/photo-1555585145-4c2fc4355ef4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGZpdG5lc3MlMjB0cmFja2VyfGVufDB8fHx8MTY4NjcxNTkyNQ&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 749850,
+      "stock": 75
+    },
+    {
+      "id": "7",
+      "productName": "Coffee Maker",
+      "imgUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGNvZmZlZSUyMG1ha2VyfGVufDB8fHx8MTY4NjcxNTkzNA&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 1349985,
+      "stock": 60
+    },
+    {
+      "id": "8",
+      "productName": "Electric Toothbrush",
+      "imgUrl": "https://images.unsplash.com/photo-1584632546750-76aa33bb3ff1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGVsZWN0cmljJTIwdG9vdGhicnVzaHxlbnwwfHx8fDE2ODY3MTU5NTg&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 374850,
+      "stock": 150
+    },
+    {
+      "id": "9",
+      "productName": "Portable Charger",
+      "imgUrl": "https://images.unsplash.com/photo-1587467268706-5668864909f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHBvcnRhYmxlJTIwY2hhcmdlcnxlbnwwfHx8fDE2ODY3MTU5NzU&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 299850,
+      "stock": 300
+    },
+    {
+      "id": "10",
+      "productName": "Digital Camera",
+      "imgUrl": "https://images.unsplash.com/photo-1488900128323-21503983a07e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGRpZ2l0YWwlMjBjYW1lcmF8ZW58MHx8fHwxNjg2NzE1OTkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 7499985,
       "stock": 25
     },
     {
-      "id": 7,
-      "productName": "Skirt",
-      "price": 599850,
-      "imgSrc": "https://example.com/images/skirt.jpg",
-      "stock": 35
+      "id": "11",
+      "productName": "Smartwatch",
+      "imgUrl": "https://images.unsplash.com/photo-1562581246-c58bcf037f17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0d2F0Y2h8ZW58MHx8fHwxNjg2NzE2MDM4&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 2249850,
+      "stock": 85
     },
     {
-      "id": 8,
-      "productName": "Blouse",
-      "price": 449850,
-      "imgSrc": "https://example.com/images/blouse.jpg",
+      "id": "12",
+      "productName": "Tablet",
+      "imgUrl": "https://images.unsplash.com/photo-1522174882315-21d70b59d94a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHRhYmxldHxlbnwwfHx8fDE2ODY3MTYwNTY&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 5499850,
+      "stock": 50
+    },
+    {
+      "id": "13",
+      "productName": "Smart Speaker",
+      "imgUrl": "https://images.unsplash.com/photo-1606016324181-e646c2f8de68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0JTIwc3BlYWtlcnxlbnwwfHx8fDE2ODY3MTYwNzQ&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 1499850,
+      "stock": 130
+    },
+    {
+      "id": "14",
+      "productName": "Drone",
+      "imgUrl": "https://images.unsplash.com/photo-1565615311820-3ab73c0268a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGRyb25lfGVufDB8fHx8MTY4NjcxNjA5MQ&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 10499850,
+      "stock": 20
+    },
+    {
+      "id": "15",
+      "productName": "E-reader",
+      "imgUrl": "https://images.unsplash.com/photo-1568667256549-094345857637?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGVyZWFkZXJ8ZW58MHx8fHwxNjg2NzE2MTE1&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 1799850,
+      "stock": 110
+    },
+    {
+      "id": "16",
+      "productName": "Home Security Camera",
+      "imgUrl": "https://images.unsplash.com/photo-1555617980-b499622e7242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGhvbWUlMjBzZWN1cml0eSUyMGNhbWVyYXxlbnwwfHx8fDE2ODY3MTYxMzE&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 2999850,
+      "stock": 95
+    },
+    {
+      "id": "17",
+      "productName": "Action Camera",
+      "imgUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGFjdGlvbiUyMGNhbWVyYXxlbnwwfHx8fDE2ODY3MTYxNTA&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 4999850,
       "stock": 40
     },
     {
-      "id": 9,
-      "productName": "Sweater",
-      "price": 749850,
-      "imgSrc": "https://example.com/images/sweater.jpg",
-      "stock": 28
+      "id": "18",
+      "productName": "Virtual Reality Headset",
+      "imgUrl": "https://images.unsplash.com/photo-1610211039404-484c37ef7c2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHZpcnR1YWwlMjByZWFsaXR5JTIwaGVhZHNldHxlbnwwfHx8fDE2ODY3MTYxNjc&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 8999850,
+      "stock": 35
     },
     {
-      "id": 10,
-      "productName": "Shorts",
-      "price": 374850,
-      "imgSrc": "https://example.com/images/shorts.jpg",
-      "stock": 60
+      "id": "19",
+      "productName": "Wireless Charger",
+      "imgUrl": "https://images.unsplash.com/photo-1553748029-622452dd156b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHdpcmVsZXNzJTIwY2hhcmdlcnxlbnwwfHx8fDE2ODY3MTYxOTM&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 224850,
+      "stock": 175
+    },
+    {
+      "id": "20",
+      "productName": "Noise Cancelling Headphones",
+      "imgUrl": "https://images.unsplash.com/photo-1582034985903-83d099defc39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fG5vaXNlJTIwY2FuY2VsbGluZyUyMGhlYWRwaG9uZXN8ZW58MHx8fHwxNjg2NzE2MjE3&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 13499850,
+      "stock": 55
+    },
+    {
+      "id": "3407",
+      "productName": "Kaos",
+      "imgUrl": "https://images.unsplash.com/photo-1566096009642-58d7cd9b4d0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0cGhvbmV8ZW58MHx8fHwxNjg2NzE1Nzkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 30000,
+      "stock": 4
+    },
+    {
+      "id": "ed72",
+      "productName": "Celana",
+      "imgUrl": "https://images.unsplash.com/photo-1566096009642-58d7cd9b4d0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0cGhvbmV8ZW58MHx8fHwxNjg2NzE1Nzkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 120000,
+      "stock": 3
+    },
+    {
+      "id": "7896",
+      "productName": "Kaos",
+      "imgUrl": "https://images.unsplash.com/photo-1566096009642-58d7cd9b4d0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0cGhvbmV8ZW58MHx8fHwxNjg2NzE1Nzkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 900000,
+      "stock": 2
+    },
+    {
+      "id": "ef17",
+      "productName": "Tas",
+      "imgUrl": "https://images.unsplash.com/photo-1566096009642-58d7cd9b4d0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0cGhvbmV8ZW58MHx8fHwxNjg2NzE1Nzkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 300000,
+      "stock": 2
+    },
+    {
+      "id": "3357",
+      "productName": "Celana",
+      "imgUrl": "https://images.unsplash.com/photo-1566096009642-58d7cd9b4d0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0cGhvbmV8ZW58MHx8fHwxNjg2NzE1Nzkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 122222,
+      "stock": 2
+    },
+    {
+      "id": "5c56",
+      "productName": "Tas",
+      "imgUrl": "https://images.unsplash.com/photo-1566096009642-58d7cd9b4d0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0cGhvbmV8ZW58MHx8fHwxNjg2NzE1Nzkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 300000,
+      "stock": 2
+    },
+    {
+      "id": "0e92",
+      "productName": "Celana",
+      "imgUrl": "https://images.unsplash.com/photo-1566096009642-58d7cd9b4d0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0cGhvbmV8ZW58MHx8fHwxNjg2NzE1Nzkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 111111,
+      "stock": 2
+    },
+    {
+      "id": "f984",
+      "productName": "Kaos Kaki",
+      "imgUrl": "https://images.unsplash.com/photo-1566096009642-58d7cd9b4d0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHNtYXJ0cGhvbmV8ZW58MHx8fHwxNjg2NzE1Nzkw&ixlib=rb-4.0.3&q=80&w=1080",
+      "price": 120000,
+      "stock": 3
     }
   ]
 }
