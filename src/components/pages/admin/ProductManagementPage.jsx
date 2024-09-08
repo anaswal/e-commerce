@@ -10,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "../../ui/table";
-import { ChevronLeft, ChevronRight, Ellipsis } from "lucide-react";
+import { ChevronLeft, ChevronRight, Edit, Trash } from "lucide-react";
 import { axiosInstance } from "@/lib/axios";
 import {
   Pagination,
@@ -44,6 +44,18 @@ const ProductManagementPage = () => {
     } else {
       searchParams.delete("search");
       setSearchParams(searchParams);
+    }
+  };
+
+  const handleDeleteProduct = async (productId) => {
+    const isDelete = confirm("Are you sure you want to delete this product?");
+    if (!isDelete) return;
+    try {
+      await axiosInstance.delete("/products/" + productId);
+      alert("Product deleted");
+      fetchProducts();
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -124,9 +136,20 @@ const ProductManagementPage = () => {
                   </TableCell>
                   <TableCell>{product.stock}</TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="icon">
-                      <Ellipsis className="w-6 h-6" />
-                    </Button>
+                    <div className="flex gap-3">
+                      <Link to={"/admin/products/edit/" + product.id}>
+                        <Button variant="ghost" size="icon">
+                          <Edit className="w-6 h-6" />
+                        </Button>
+                      </Link>
+                      <Button
+                        onClick={() => handleDeleteProduct(product.id)}
+                        variant="destructive"
+                        size="icon"
+                      >
+                        <Trash className="w-6 h-6" />
+                      </Button>
+                    </div>
                   </TableCell>
                 </TableRow>
               </TableBody>

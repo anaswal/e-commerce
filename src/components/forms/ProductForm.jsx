@@ -31,14 +31,22 @@ const createProductSchema = z.object({
 });
 
 const ProductForm = (props) => {
-  const { onSubmit, title, description } = props;
+  const {
+    onSubmit,
+    title,
+    description,
+    defaultProductName,
+    defaultPrice,
+    defaultImgUrl,
+    defaultStock,
+  } = props;
   const [button, setButton] = useState(false);
   const form = useForm({
     defaultValues: {
-      productName: "",
-      imgUrl: "",
-      price: 0,
-      stock: 0,
+      productName: defaultProductName || "",
+      imgUrl: defaultImgUrl || "",
+      price: defaultPrice || 0,
+      stock: defaultStock || 0,
     },
     resolver: zodResolver(createProductSchema),
   });

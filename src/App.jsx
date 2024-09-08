@@ -23,7 +23,7 @@ function App() {
         <Route path="/admin">
           <Route path="products" Component={ProductManagementPage} />
           <Route path="products/create" Component={CreateProductPage} />
-          <Route path="products/edit" Component={EditProductPage} />
+          <Route path="products/edit/:productId" Component={EditProductPage} />
         </Route>
         <Route path="*" Component={NotFoundPage} />
       </Routes>
