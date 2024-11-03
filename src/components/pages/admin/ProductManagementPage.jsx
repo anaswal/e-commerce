@@ -20,12 +20,14 @@ import {
 import { Link, useSearchParams } from "react-router-dom";
 import { Label } from "../../ui/label";
 import { Input } from "../../ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const ProductManagementPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [hasNextPage, setHasNextPage] = useState(true);
   const [productName, setProductName] = useState("");
+  const [selectedProductId, setSelectedProductId] = useState([]);
 
   const handleNextPage = () => {
     searchParams.set("page", Number(searchParams.get("page")) + 1);
@@ -47,15 +49,37 @@ const ProductManagementPage = () => {
     }
   };
 
-  const handleDeleteProduct = async (productId) => {
-    const isDelete = confirm("Are you sure you want to delete this product?");
+  const handleDeleteProduct = async () => {
+    const isDelete = confirm(
+      `Are you sure you want to delete ${selectedProductId.length} products?`
+    );
     if (!isDelete) return;
+
+    const deletePromises = selectedProductId.map((productId) => {
+      return axiosInstance.delete("/products/" + productId);
+    });
+
     try {
-      await axiosInstance.delete("/products/" + productId);
-      alert("Product deleted");
-      fetchProducts();
+      await Promise.all(deletePromises);
+      alert(`Successfully deleted ${selectedProductId.length} products.`);
+      searchParams.set("page", 1);
+      setSearchParams(searchParams);
+      setSelectedProductId([]);
     } catch (err) {
       console.log(err);
+    }
+  };
+
+  const handleOnCheckedBox = (productId, checked) => {
+    if (checked) {
+      setSelectedProductId([...selectedProductId, productId]);
+    } else {
+      const productIdIndex = selectedProductId.findIndex((id) => {
+        return id == productId;
+      });
+      const prevSelectedProductId = [...selectedProductId];
+      prevSelectedProductId.splice(productIdIndex, 1);
+      setSelectedProductId(prevSelectedProductId);
     }
   };
 
@@ -94,12 +118,23 @@ const ProductManagementPage = () => {
         title="Product Management Page"
         description="Manage our store's products"
         rightSection={
-          <Link to="/admin/products/create">
-            <Button>
-              <IoAdd className="h-6 w-6 mr-2" />
-              Add product
-            </Button>
-          </Link>
+          <div className="flex gap-4">
+            {selectedProductId.length > 1 ? (
+              <Button variant="destructive" onClick={handleDeleteProduct}>
+                Delete {selectedProductId.length} Products
+              </Button>
+            ) : selectedProductId.length == 1 ? (
+              <Button variant="destructive" onClick={handleDeleteProduct}>
+                Delete {selectedProductId.length} Product
+              </Button>
+            ) : null}
+            <Link to="/admin/products/create">
+              <Button>
+                <IoAdd className="h-6 w-6 mr-2" />
+                Add product
+              </Button>
+            </Link>
+          </div>
         }
       >
         <div className="mb-3">
@@ -118,6 +153,7 @@ const ProductManagementPage = () => {
         <Table>
           <TableHeader>
             <TableRow>
+              <TableHead></TableHead>
               <TableHead>ID</TableHead>
               <TableHead>Product Name</TableHead>
               <TableHead>Price</TableHead>
@@ -129,6 +165,14 @@ const ProductManagementPage = () => {
             return (
               <TableBody>
                 <TableRow>
+                  <TableCell>
+                    <Checkbox
+                      onCheckedChange={(checked) => {
+                        handleOnCheckedBox(product.id, checked);
+                      }}
+                      checked={selectedProductId.includes(product.id)}
+                    />
+                  </TableCell>
                   <TableCell>{product.id}</TableCell>
                   <TableCell>{product.productName}</TableCell>
                   <TableCell>
@@ -136,20 +180,11 @@ const ProductManagementPage = () => {
                   </TableCell>
                   <TableCell>{product.stock}</TableCell>
                   <TableCell>
-                    <div className="flex gap-3">
-                      <Link to={"/admin/products/edit/" + product.id}>
-                        <Button variant="ghost" size="icon">
-                          <Edit className="w-6 h-6" />
-                        </Button>
-                      </Link>
-                      <Button
-                        onClick={() => handleDeleteProduct(product.id)}
-                        variant="destructive"
-                        size="icon"
-                      >
-                        <Trash className="w-6 h-6" />
+                    <Link to={"/admin/products/edit/" + product.id}>
+                      <Button variant="ghost" size="icon">
+                        <Edit className="w-6 h-6" />
                       </Button>
-                    </div>
+                    </Link>
                   </TableCell>
                 </TableRow>
               </TableBody>
