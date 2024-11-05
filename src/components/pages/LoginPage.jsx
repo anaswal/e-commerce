@@ -68,6 +68,7 @@ const LoginPage = () => {
         payload: {
           username: userResponse.data[0].username,
           id: userResponse.data[0].id,
+          role: userResponse.data[0].role,
         },
       });
 

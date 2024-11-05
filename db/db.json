@@ -145,7 +145,14 @@
     {
       "id": "6766",
       "username": "anas",
-      "password": "password"
+      "password": "password",
+      "role": "user"
+    },
+    {
+      "id": "1190",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin"
     }
   ]
 }

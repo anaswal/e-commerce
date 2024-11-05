@@ -39,7 +39,9 @@ const Header = () => {
         <div className="flex space-x-2">
           {userSelector.id ? (
             <>
-              <p>Hello, {userSelector.username}</p>
+              <p>
+                Hello, {userSelector.username} ({userSelector.role})
+              </p>
               <Button onClick={handleLogout} variant="destructive">
                 Log out
               </Button>

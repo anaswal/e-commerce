@@ -63,6 +63,7 @@ const RegisterPage = () => {
       await axiosInstance.post("/users", {
         username: values.username,
         password: values.password,
+        role: values.role,
       });
       alert("User registered");
       form.reset();
