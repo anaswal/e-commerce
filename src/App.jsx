@@ -15,7 +15,7 @@ import { useHydration } from "./hooks/useHydration";
 
 function App() {
   const location = useLocation();
-  const { isHydrated } = useHydration();
+  const { isHydrated } = useHydration(); //custom hook
 
   if (!isHydrated) {
     return <div>Loading...</div>;
