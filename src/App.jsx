@@ -12,6 +12,7 @@ import EditProductPage from "./components/pages/admin/EditProductPage";
 import CounterPage from "./components/pages/CounterPage";
 import RegisterPage from "./components/pages/RegisterPage";
 import { useHydration } from "./hooks/useHydration";
+import HistoryPage from "./components/pages/HistoryPage";
 
 function App() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function App() {
         <Route path="/register" Component={RegisterPage} />
         <Route path="/product/:productId" Component={ProductDetailPage} />
         <Route path="/counter" Component={CounterPage} />
+        <Route path="/history" Component={HistoryPage} />
         <Route path="/admin">
           <Route path="products" Component={ProductManagementPage} />
           <Route path="products/create" Component={CreateProductPage} />

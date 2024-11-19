@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Input } from "./ui/input";
-import { IoCart, IoHeart } from "react-icons/io5";
+import { IoCart } from "react-icons/io5";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { getCartItems } from "./services/cartService";
+import { History } from "lucide-react";
 
 const Header = () => {
   const userSelector = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  const cartSelector = useSelector((state) => state.cart);
 
   const handleLogout = () => {
     localStorage.removeItem("current-user");
@@ -17,21 +19,32 @@ const Header = () => {
     });
   };
 
+  useEffect(() => {
+    getCartItems(userSelector.id);
+  }, []);
+
   return (
     <header className="border-b border-gray-300 flex justify-between items-center px-8 h-16">
-      <p className="font-bold text-2xl">e-Kommers</p>
+      <Link to="/">
+        <p className="font-bold text-2xl">e-Kommers</p>
+      </Link>
 
       <Input className="max-w-[600px]" placeholder="Search products..." />
       <div className="flex space-x-4 h-6 items-center">
         <div className="flex space-x-2 ">
           <Link to={"/cart"}>
-            <Button size="icon" variant="ghost">
+            <Button className="mr-2" variant="ghost">
               <IoCart className="h-6 w-6" />
+              <span className="font-bold text-lg">
+                {cartSelector.items.length}
+              </span>
             </Button>
           </Link>
-          <Button size="icon" variant="ghost">
-            <IoHeart className="h-6 w-6" />
-          </Button>
+          <Link to={"/history"}>
+            <Button size="icon" variant="ghost">
+              <History className="h-6 w-6" />
+            </Button>
+          </Link>
         </div>
 
         <Separator orientation="vertical" className="h-full" />

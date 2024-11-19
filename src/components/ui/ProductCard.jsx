@@ -3,13 +3,58 @@ import { useState } from "react";
 import { Button } from "./button";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import { Link } from "react-router-dom";
-
-const addToCart = () => alert("Clicked");
+import { axiosInstance } from "@/lib/axios";
+import { useSelector } from "react-redux";
+import { getCartItems } from "../services/cartService";
 
 const ProductCard = (props) => {
   const { imgUrl, productName, price, stock, id } = props;
 
+  const userSelector = useSelector((state) => state.user);
   const [quantity, setQuantity] = useState(0);
+
+  const addToCart = async () => {
+    try {
+      if (!userSelector.id) {
+        alert("Please login first");
+        return;
+      }
+
+      const cartResponse = await axiosInstance.get("/carts", {
+        params: {
+          userId: useSelector.id,
+          _embed: "product",
+        },
+      });
+
+      const existingProduct = cartResponse.data.find((cart) => {
+        return cart.productId === id;
+      });
+
+      if (!existingProduct) {
+        await axiosInstance.post("/carts", {
+          userId: userSelector.id,
+          productId: id,
+          quantity,
+        });
+      } else {
+        if (
+          existingProduct.quantity + quantity >
+          existingProduct.product.stock
+        ) {
+          alert("Quantity is over the stock!");
+          return;
+        }
+        await axiosInstance.patch("/carts/" + existingProduct.id, {
+          quantity: existingProduct.quantity + quantity,
+        });
+      }
+      getCartItems(userSelector.id);
+      alert("Product added to cart!");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const incrementQuantity = () => {
     if (quantity < stock) {
@@ -57,7 +102,7 @@ const ProductCard = (props) => {
           <IoIosAdd className="h-6 w-6" />
         </Button>
       </div>
-      <Button onClick={addToCart} disabled={!stock}>
+      <Button onClick={addToCart} disabled={!stock || quantity < 1}>
         {stock > 0 ? "Add to cart" : "Out of stock"}
       </Button>
     </div>
