@@ -13,6 +13,7 @@ import CounterPage from "./components/pages/CounterPage";
 import RegisterPage from "./components/pages/RegisterPage";
 import { useHydration } from "./hooks/useHydration";
 import HistoryPage from "./components/pages/HistoryPage";
+import HistoryDetailPage from "./components/pages/HistoryDetailPage";
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function App() {
         <Route path="/product/:productId" Component={ProductDetailPage} />
         <Route path="/counter" Component={CounterPage} />
         <Route path="/history" Component={HistoryPage} />
+        <Route path="/history/:transactionId" Component={HistoryDetailPage} />
         <Route path="/admin">
           <Route path="products" Component={ProductManagementPage} />
           <Route path="products/create" Component={CreateProductPage} />
